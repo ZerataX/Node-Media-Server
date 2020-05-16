@@ -9,25 +9,37 @@ const config = {
     ping_timeout: 60
   },
   http: {
-    port: 8000,
+    port: 8823,
     mediaroot: './media',
     webroot: './www',
     allow_origin: '*',
     api: true
   },
-  https: {
-    port: 8443,
-    key: './privatekey.pem',
-    cert: './certificate.pem',
-  },
+  // https: {
+  //   port: 8443,
+  //   key: './privatekey.pem',
+  //   cert: './certificate.pem',
+  // },
   auth: {
     api: true,
     api_user: 'admin',
-    api_pass: 'admin',
-    play: false,
+    api_pass: 'e8GrLghEwVhtcVMeyiUQlwFrJGlgTd1KWjCb4b/nm8g=',
+    play: true,
     publish: false,
-    secret: 'nodemedia2017privatekey'
+    secret: '2501'
   },
+  trans: {
+    ffmpeg: '/usr/bin/ffmpeg',
+    tasks: [
+      {
+        app: 'live',
+        hls: true,
+        hlsFlags: '[hls_time=2:hls_list_size=3:hls_flags=delete_segments]',
+        dash: true,
+        dashFlags: '[f=dash:window_size=3:extra_window_size=5]'
+      }
+    ]
+  }
 };
 
 
